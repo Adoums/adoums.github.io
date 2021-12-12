@@ -20,6 +20,7 @@ ws.onmessage = m => {
         window.sessionStorage.setItem("username", m.author)
     } else {
         if(m instanceof Array) {
+            m = m.reverse()
             for(let i = 0; i < m.length; i++) createMessage(m[i].author, m[i].content)
         } else createMessage(m.author, m.content)
         document.getElementsByTagName("section")[0].scrollTop = document.getElementsByTagName("section")[0].scrollHeight
