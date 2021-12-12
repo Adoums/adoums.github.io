@@ -1,4 +1,4 @@
-const ws = new WebSocket("wss://message.adoums.repl.co/")
+const ws = new WebSocket("ws://message.adoums.repl.co/")
 const ifStored = () => {return window.sessionStorage.getItem("username")}
 if(ifStored()) ws.onopen = () => ws.send(`{"author":"${ifStored()}"}`)
 else ws.onopen = () => ws.send("[]")
@@ -20,9 +20,11 @@ ws.onmessage = m => {
         window.sessionStorage.setItem("username", m.author)
     } else {
         if(m instanceof Array) {
+            m = m.reverse()
             for(let i = 0; i < m.length; i++) createMessage(m[i].author, m[i].content)
         } else createMessage(m.author, m.content)
         document.getElementsByTagName("section")[0].scrollTop = document.getElementsByTagName("section")[0].scrollHeight
+        new Audio('sound.mp3').play()
     }
 }
 const textarea = document.getElementsByTagName("textarea")[0]
