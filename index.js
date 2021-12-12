@@ -28,7 +28,7 @@
                 for(let i = 0; i < m.length; i++) createMessage(m[i].author, m[i].content)
             } else createMessage(m.author, m.content)
             section.scrollTop = section.scrollHeight
-            if(document.hidden && m.loaded == false) new Audio('sound.mp3').play()
+            if(document.hidden && m.loaded !== false) new Audio('sound.mp3').play()
         }
     }
     textarea.onkeydown = e => {
