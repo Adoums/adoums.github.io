@@ -1,6 +1,6 @@
 ;(function init() {
     const ws = new WebSocket("wss://message.adoums.repl.co/")
-    const ifStored = () => {return window.sessionStorage.getItem("username")}
+    const ifStored = () => {return window.localStorage.getItem("username")}
     if(ifStored()) ws.onopen = () => ws.send(`{"author":"${ifStored()}"}`)
     else ws.onopen = () => ws.send("[]")
     function createMessage(author, content) {
@@ -18,7 +18,7 @@
     ws.onmessage = m => {
         m = JSON.parse(m.data)
         if(m.success) {
-            window.sessionStorage.setItem("username", m.author)
+            window.localStorage.setItem("username", m.author)
         } else {
             if(m instanceof Array) {
                 m = m.reverse()
