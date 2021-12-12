@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://message.adoums.repl.co/")
+const ws = new WebSocket("wss://message.adoums.repl.co/")
 const ifStored = () => {return window.sessionStorage.getItem("username")}
 if(ifStored()) ws.onopen = () => ws.send(`{"author":"${ifStored()}"}`)
 else ws.onopen = () => ws.send("[]")
