@@ -29,10 +29,10 @@
         }
     }
     const textarea = document.getElementsByTagName("textarea")[0]
-    textarea.onkeyup = e => {
-        e.preventDefault()
+    textarea.onkeydown = e => {
         if(!textarea.value.replace(/[^A-Za-z0-9]+/g, "").length) return
         if(e.key == "Enter") {
+            e.preventDefault()
             const value = textarea.value.replace(/("|\n)/g, "")
             textarea.value = ""
             if(ifStored()) ws.send(`{"content":"${value}"}`)
