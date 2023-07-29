@@ -20,9 +20,25 @@
         audio {
             display: none;
         }
+        .banane {
+            font-size: 6vw;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            word-wrap: break-word;
+            max-width: 90%;
+        }
     </style>
 </head>
 <body>
-    <audio autoplay loop><source src="/son.mp3" type="audio/mpeg"></audio>
+    <div class="banane">EH LES BANANES</div>
+    <audio autoplay loop id="background-music"><source src="/son.mp3" type="audio/mpeg"></audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const audio = document.getElementById('background-music');
+            audio.volume = 1
+            audio.play()
+        });
+    </script>
 </body>
 </html>
