@@ -6,9 +6,11 @@
     <title>YEAGER</title>
     <style>
         body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("/IMG_20230717_205055_105.jpg");
+            letter-spacing: 5px;
+            background-image: url("/banane.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -16,28 +18,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        audio {
-            display: none;
-        }
-        .banane {
-            font-size: 6vw;
-            font-weight: bold;
+            text-align: center;
             color: white;
-            top: 10vh;
-            word-wrap: break-word;
-            max-width: 90%;
+            font-size: 100px;
         }
     </style>
 </head>
 <body>
-    <div class="banane">EH LES BANANES</div>
-    <audio autoplay loop id="background-music"><source src="/son.mp3" type="audio/mpeg"></audio>
+    <div id="background-image"></div>
+    <span class="banane">EH LES BANANES 🍌</span>
     <script>
-        window.onload = () => {
-            const audio = document.getElementById('background-music');
-            audio.volume = 1
-            audio.play()
+        const bananes = document.getElementsByTagName("span");
+        const audio = new Audio("/son.mp3")
+        audio.repeat = true
+        audio.volume = 0
+        document.body.onclick = () => {
+            audio.play().then(() => {
+                audio.currentTime = 0
+                audio.pause()
+                audio.volume = 1
+                audio.play()
+            })
         }
     </script>
 </body>
