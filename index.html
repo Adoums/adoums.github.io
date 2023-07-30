@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,14 +21,14 @@
             text-align: center;
             color: white;
             font-size: 100px;
+            user-select: none;
         }
     </style>
 </head>
 <body>
-    <span class="banane">EH LES BANANES 🍌</span>
+    <span id="banane">EH LES BANANES 🍌</span>
     <script>
-        const bananes = document.getElementsByTagName("span");
-        const audio = new Audio("/son.mp3")
+        const audio = new Audio("/banane.mp3")
         audio.repeat = true
         audio.volume = 0
         document.body.onclick = () => {
