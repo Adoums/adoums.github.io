@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,7 @@
     <script>
         const audio = new Audio("/banane.mp3")
         audio.repeat = true
+        audio.loop = true
         audio.volume = 0
         document.body.onclick = () => {
             audio.play().then(() => {
